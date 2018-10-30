@@ -1,3 +1,4 @@
+import { Route, Router } from '@angular/router';
 import { SignupService } from './../services/signup.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private signupService: SignupService) { }
+  constructor(
+    private signupService: SignupService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -24,6 +28,7 @@ export class SignupComponent implements OnInit {
     this.signupService.Post(users)
     .subscribe(response => {
       console.log(response);
+      this.router.navigate(['profile']);
 
     });
 

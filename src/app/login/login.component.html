@@ -8,7 +8,7 @@
                id="emailID"
                type = "Text"
                #emailId='ngModel'
-               class="form-control">
+               class="form-control" (blur)="validate(f)" (keyup)="validate(f)">
   <div class="alert alert-danger"
        *ngIf= "emailId.touched  && !emailId.valid">
 
@@ -22,14 +22,14 @@
   <input required id="password" ngModel name='password'
         type = "Text"
         #password='ngModel'
-        class="form-control">
+        class="form-control" (blur)="validate(f)" (keyup)="validate(f)">
   <div class="alert alert-danger"
        *ngIf='password.touched && !password.valid'>
         Password is required
   </div>
 </div>
 
-<button class="btn btn-primary">
+<button class="btn btn-primary button" [ngClass]= "{'disabled':disable}" >
     LOGIN
   </button>
 
