@@ -1,0 +1,23 @@
+<form #f='ngForm' (ngSubmit) = 'signup(f)'>
+
+  <div>
+    <h1>SIGN UP</h1>
+
+  <label for="Username">Username:</label>
+  <input type="text" #username ngModel name='username'>
+  <br>
+
+  <label for="email Id">Email ID:</label>
+  <input type = "Text" #emailID ngModel name='emailID'>
+  <br>
+
+  <label for="password">Password :</label>
+  <input type = "Text" #password ngModel name='password'>
+  <br>
+  </div>
+
+<button class="primary"  >
+  Sign UP
+</button>
+
+</form>

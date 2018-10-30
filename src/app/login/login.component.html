@@ -1,0 +1,37 @@
+<form #f="ngForm"
+(ngSubmit) = 'login(f)'>
+  <h1>Login</h1>
+
+<div class="form-group">
+<label for="emailID">Email Id</label>
+<input required ngModel name="email"
+               id="emailID"
+               type = "Text"
+               #emailId='ngModel'
+               class="form-control">
+  <div class="alert alert-danger"
+       *ngIf= "emailId.touched  && !emailId.valid">
+
+       First Name is required
+
+   </div>
+</div>
+
+<div>
+  <label for="password">Password</label>
+  <input required id="password" ngModel name='password'
+        type = "Text"
+        #password='ngModel'
+        class="form-control">
+  <div class="alert alert-danger"
+       *ngIf='password.touched && !password.valid'>
+        Password is required
+  </div>
+</div>
+
+<button class="btn btn-primary">
+    LOGIN
+  </button>
+
+
+</form>
