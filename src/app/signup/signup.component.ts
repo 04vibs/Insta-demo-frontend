@@ -8,12 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
+  disable = true;
   constructor(
     private signupService: SignupService,
     private router: Router
   ) { }
 
+  validate(f) {
+    console.log('www', f.value.password);
+    this.disable = !(f.value.emailID !== '' && f.value.emailID !== null) ||
+    !(f.value.password !== '' && f.value.password !== null) ||
+    !(f.value.username !== '' && f.value.username !== null) ;
+  }
   ngOnInit() {
   }
 

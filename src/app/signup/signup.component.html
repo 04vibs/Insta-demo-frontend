@@ -4,19 +4,25 @@
     <h1>SIGN UP</h1>
 
   <label for="Username">Username:</label>
-  <input type="text" #username ngModel name='username'>
+  <input type="text" #username ngModel
+  class="form-control" (blur)="validate(f)" (keyup)="validate(f)"
+  name='username'>
   <br>
 
   <label for="email Id">Email ID:</label>
-  <input type = "Text" #emailID ngModel name='emailID'>
+  <input type = "Text" #emailID ngModel
+  class="form-control" (blur)="validate(f)" (keyup)="validate(f)"
+  name='emailID'>
   <br>
 
   <label for="password">Password :</label>
-  <input type = "Text" #password ngModel name='password'>
+  <input type = "Text" #password ngModel
+  class="form-control" (blur)="validate(f)" (keyup)="validate(f)"
+  name='password'>
   <br>
   </div>
 
-<button class="primary"  >
+<button class="btn btn-primary button" [ngClass]= "{'disabled':disable}"  >
   Sign UP
 </button>
 
