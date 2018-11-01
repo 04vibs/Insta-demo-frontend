@@ -12,7 +12,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
   baseUrl = 'http://localhost:3000/api/login';
 
-  getUserdata() {
-    return this.http.get(this.baseUrl);
+  getUserdata(user) {
+    return this.http.post(this.baseUrl, user);
   }
 }

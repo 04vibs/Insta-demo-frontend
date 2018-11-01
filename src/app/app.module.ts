@@ -1,3 +1,4 @@
+import { ProfileService } from './services/profile.service';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { SignupService } from './services/signup.service';
@@ -28,7 +29,9 @@ import { ProfileComponent } from './profile/profile.component';
   providers: [
     HttpClient,
     LoginService,
-    SignupService
+    SignupService,
+    ProfileService
+
   ],
   bootstrap: [AppComponent]
 })

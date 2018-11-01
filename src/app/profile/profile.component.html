@@ -2,9 +2,12 @@
   profile works!
 </p>
 
-<form>
+<form #f="ngForm"
+(ngSubmit) = "onSubmit()">
    <input type="file" name="fileupload"
-    value="fileupload" id="fileupload">
-    <label for="fileupload"> Select a file to upload</label>
-    <input type="submit" value="submit">
+    value="fileupload" id="fileupload" (change)="postprofileimages($event)" #fileInput>
+    <label for="fileupload" > Select a file to upload</label>
+    <input type="submit" >
+
+    <button class="btn btn-primary">upload</button>
 </form>
