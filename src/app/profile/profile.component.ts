@@ -10,14 +10,17 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class ProfileComponent implements OnInit {
  image: File;
  form;
+ profileImage;
+path;
   constructor(private profileService: ProfileService) {
     this.form = new FormGroup ({
       file1: new FormControl('')
   });
   }
 
+
   ngOnInit() {
-    // this.getprofileimages();
+     this.getprofileimages();
   }
 
   getprofileimages() {
@@ -25,11 +28,15 @@ export class ProfileComponent implements OnInit {
     this.profileService.getprofileimages(id)
       .subscribe(response => {
         console.log(response);
+        this.path = response[0].imagepath;
+        console.log(this.path);
+      // const path1 = path.toString('ascii');
+     //   console.log(path1);
       });
   }
 
   postprofileimages(event) {
-    console.log();
+
     const id = localStorage.getItem('id');
     const reader = new FileReader();
     if (event.target.files && event.target.files.length > 0) {
@@ -47,6 +54,7 @@ export class ProfileComponent implements OnInit {
     console.log(this.image);
     this.profileService.postprofileimages(this.image).subscribe(data => {
       console.log(data);
+      this.getprofileimages();
     });
   }
 }
