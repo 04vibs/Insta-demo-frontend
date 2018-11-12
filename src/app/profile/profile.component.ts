@@ -28,8 +28,13 @@ path;
     this.profileService.getprofileimages(id)
       .subscribe(response => {
         console.log(response);
-        this.path = response[0].imagepath;
-        console.log(this.path);
+        this.path = response;
+        // for (let i = 0; i < response; i++) {
+        //   console.log('Entered line 32');
+        //   this.path = response[i].imagepath;
+        //   console.log(this.path);
+        // }
+
       // const path1 = path.toString('ascii');
      //   console.log(path1);
       });
