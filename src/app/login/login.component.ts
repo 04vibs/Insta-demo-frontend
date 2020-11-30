@@ -8,16 +8,24 @@ import { Route, Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
  disable = true;
+ key = '6LfrFvEZAAAAAD4GtsN2ie6vVy9q9Zka_ga2rEgh';
+ captchaResponse: string;
+
   constructor(
     private loginService: LoginService,
     private router: Router ) { }
 users: any;
   ngOnInit() {
   }
-
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
+    this.captchaResponse = captchaResponse;
+}
   validate(f) {
     console.log('www', f.value.password);
-    this.disable = !(f.value.email !== '' && f.value.email !== null) || !(f.value.password !== '' && f.value.password !== null);
+    this.resolved(this.captchaResponse);
+    this.disable = !(f.value.email !== '' && f.value.email !== null) ||
+     !(f.value.password !== '' && f.value.password !== null);
   }
   login(f) {
     console.log(f);

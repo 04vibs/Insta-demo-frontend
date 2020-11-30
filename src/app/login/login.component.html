@@ -27,8 +27,13 @@
        *ngIf='password.touched && !password.valid'>
         Password is required
   </div>
+
 </div>
 
+<div>
+  <re-captcha (resolved)="resolved($event)" siteKey="6LfrFvEZAAAAAD4GtsN2ie6vVy9q9Zka_ga2rEgh"></re-captcha>
+ 
+</div>
 <button class="btn btn-primary button" [ngClass]= "{'disabled':disable}" >
     LOGIN
   </button>
